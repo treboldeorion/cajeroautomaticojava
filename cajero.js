@@ -1,0 +1,90 @@
+
+/*CLIENTES*/
+var cuenta = [
+{nombre:"Miguel",saldo:200, password:"9876"},
+{nombre:"Day",saldo:200, password:"1234"},
+{nombre:"Jero",saldo:200, password:"5678"}
+];
+
+
+/*Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10. Es necesario hacer las validaciones pertinentes para que no se rompa esta regla de negocio.*/
+
+/*REGLA/**/
+    
+function regla (){
+    let indice = parseInt(document.querySelector("#cuenta").value)
+    let saldo = cuenta [indice-1].saldo;
+
+    if( saldo >990) {
+        document.getElementById("bienvenido").alert="Excedio su saldo, consuelte a un asesor bancario"
+    }
+    if( saldo <10 ) {
+        document.getElementById("bienvenido").innerHTML="Saldo insuficiente"
+    } else (document.getElementById("bienvenido").innerHTML="Realice sus transacciones con precaucion")
+}
+
+
+
+
+/*VALIDAR CONTRASEÑA*/
+
+function pas(){
+    let indice = parseInt(document.querySelector("#cuenta").value)
+    let pass1 = document.getElementById("pass").value; /*CONTRASEÑA INGRESADA*/
+    let pass2 = cuenta [indice-1].password;   /*CONTRASEÑA GRABADA USUARIO*/
+    if(pass1 === pass2){
+    document.getElementById("bienvenido").innerHTML="contraseña correcta, continue"
+   }
+}
+/*let msn = document.getElementById("passwordHelpBlock").value;*/
+
+
+
+document.querySelector("#cuenta").addEventListener("change",leerPersona)
+document.querySelector("#consig").addEventListener("click",leerconsignar)
+document.querySelector("#reti").addEventListener("click",leerretirar)
+document.querySelector("#bienvenido").addEventListener("click",pas)
+
+/*LEER PERSONSA*/
+
+function leerPersona(){
+    let indice = parseInt(document.querySelector("#cuenta").value);
+    console.log(cuenta[indice-1]);
+    let cliente = cuenta[indice-1].nombre;
+    let saldo = cuenta [indice-1].saldo;
+    document.getElementById("titulo").innerHTML = "Hola," + cliente;
+    document.getElementById("descripcion").innerHTML = "Tu saldo es ,$ " + saldo;
+    
+}
+
+
+/*rEtIRAR PERSONA*/
+
+function leerretirar(){
+let retiro = parseInt(document.querySelector("#retirar").value);
+let indice = parseInt(document.querySelector("#cuenta").value);
+let saldo = cuenta [indice-1].saldo;
+
+console.log(saldo);
+
+document.getElementById("descripcion").innerHTML =saldo-retiro;
+cuenta [indice-1].saldo = saldo-retiro;
+
+}
+
+/*CONSIGNAR PERSONA*/
+
+function leerconsignar(){
+    let consignar = parseInt(document.querySelector("#consignar").value);
+    let indice = parseInt(document.querySelector("#cuenta").value);
+    let saldo = cuenta [indice-1].saldo;
+    
+    console.log(saldo);
+    
+    document.getElementById("descripcion").innerHTML = saldo+consignar;
+    cuenta [indice-1].saldo = saldo+consignar;
+   
+
+    }
+
+

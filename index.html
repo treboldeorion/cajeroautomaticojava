@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CajeroAutomatico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+    <div class="container">
+    <h1>Zona Transaccional</h1>
+    
+    <p2>En esta pagina podra consultar consultar, consignar ó retirar su dinero</p2>
+      
+    <form method="get">
+        
+        
+
+        <label></label>
+        <select class="form-select form-select-lg mb-3" id="cuenta" c8naria-label=".form-select-lg example">
+            <option selected>Seleccione cuenta</option>
+            <option value="1">Miguel</option>
+            <option value="2">Day</option>
+            <option value="3">Jero</option>
+          </select>
+
+        
+          <div> 
+            <label for="inputPassword5 mt-5" class="form-label">Contraseña</label>
+            <input type="password" id="pass" class="form-control" aria-labelledby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+            Ingrese la contraseña que usa en el cajero del banco
+             </div>
+          
+
+          </div>
+   
+    
+         
+          <div class="col-12">
+          <button class="btn btn-primary mt-5" type="button" onclick="enviar()">Enviar</button>
+        </div>
+       
+      </form>
+    
+      <div><h1 id="bienvenido">BIENVENIDO AL BANCO CAIMAN</h1></div>
+
+
+
+      <div class="card mt-5" style="width: 18rem;">
+        <img src="caiman.jpg" id="foto" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title" id="titulo"></h5>
+          <p class="card-text" id="descripcion">El saldo es el resultado final de sus transacciones.</p>
+          <a href="#" id="consig" class="btn btn-primary mt-3">Consignar</a>
+          <input type="number" id="consignar" class="form-control mt-3"  aria-label="Dollar amount (with dot and two decimal places)">
+          <a href="#" id="reti" class="btn btn-primary mt-3">Retirar</a>
+          <input type="number" id="retirar" class="form-control mt-3" aria-label="Dollar amount (with dot and two decimal places)">
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <script src="cajero.js"></script>
+
+</body>
+</html>
