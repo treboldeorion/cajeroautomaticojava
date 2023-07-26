@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-    <h1>Zona Transaccional</h1>
+    <h1>Zona Transaccional Banco Caiman</h1>
     
     <p2>En esta pagina podra consultar consultar, consignar ó retirar su dinero</p2>
       
@@ -19,7 +19,8 @@
         
         
 
-        <label></label>
+           <div  class="inicio">
+        <br/>
         <select class="form-select form-select-lg mb-3" id="cuenta" c8naria-label=".form-select-lg example">
             <option selected>Seleccione cuenta</option>
             <option value="1">Miguel</option>
@@ -30,37 +31,43 @@
         
           <div> 
             <label for="inputPassword5 mt-5" class="form-label">Contraseña</label>
-            <input type="password" id="pass" class="form-control" aria-labelledby="passwordHelpBlock">
+            <input type="password" id="pass" class="form-control">
             <div id="passwordHelpBlock" class="form-text">
-            Ingrese la contraseña que usa en el cajero del banco
+             Ingrese la contraseña que usa en el cajero del banco
              </div>
-          
+            </div>
 
           </div>
-   
-    
          
           <div class="col-12">
-          <button class="btn btn-primary mt-5" type="button" onclick="enviar()">Enviar</button>
+          <button class="btn btn-primary mt-3" type="button" onclick="enviar()">Enviar</button>
         </div>
+
        
       </form>
-    
+      <div class="contenido"> 
       <div><h1 id="bienvenido">BIENVENIDO AL BANCO CAIMAN</h1></div>
 
 
+      
 
-      <div class="card mt-5" style="width: 18rem;">
-        <img src="caiman.jpg" id="foto" class="card-img-top" alt="">
-        <div class="card-body">
+
+
+       <div class="card mt-5" style="width: 18rem;">
+         <img src="caiman.jpg" id="foto" class="card-img-top" alt="">
+         <div class="card-body">
           <h5 class="card-title" id="titulo"></h5>
-          <p class="card-text" id="descripcion">El saldo es el resultado final de sus transacciones.</p>
+          <p class="card-text" id="descripcion"></p>
           <a href="#" id="consig" class="btn btn-primary mt-3">Consignar</a>
           <input type="number" id="consignar" class="form-control mt-3"  aria-label="Dollar amount (with dot and two decimal places)">
           <a href="#" id="reti" class="btn btn-primary mt-3">Retirar</a>
           <input type="number" id="retirar" class="form-control mt-3" aria-label="Dollar amount (with dot and two decimal places)">
-
+         </div>
+         <div class="col-12">
+          <button class="btn btn-danger mt-3" type="button" onclick="cierre()">Cerrar Cesion</button>
         </div>
+        </div>
+
       </div>
 
 
