@@ -40,25 +40,15 @@ function cierre() {
 /*Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10. Es necesario hacer las validaciones pertinentes para que no se rompa esta regla de negocio.*/
 /*REGLA*/
     
-function regla (){
-    let indice = parseInt(document.querySelector("#cuenta").value)
-    let saldo = cuenta [indice-1].saldo;
 
-    if( saldo >990) {
-        document.getElementById("bienvenido").alert="Excedio su saldo, consuelte a un asesor bancario"
-    }
-    if( saldo <10 ) {
-        document.getElementById("bienvenido").innerHTML="Saldo insuficiente"
-    } else (document.getElementById("bienvenido").innerHTML="Transaccion Exitosa")
-}
 
 /*let msn = document.getElementById("passwordHelpBlock").value;*/
 
 
 
 document.querySelector("#cuenta").addEventListener("change",leerPersona)
-document.querySelector("#consig").addEventListener("click",leerconsignar,regla)
-document.querySelector("#reti").addEventListener("click",leerretirar,regla)
+document.querySelector("#consig").addEventListener("click",leerconsignar)
+document.querySelector("#reti").addEventListener("click",leerretirar)
 
 
 /*LEER PERSONSA*/
@@ -73,23 +63,6 @@ function leerPersona(){
 }
 
 
-/*rEtIRAR PERSONA*/
-
-function leerretirar(){
-let retiro = parseInt(document.querySelector("#retirar").value);
-let indice = parseInt(document.querySelector("#cuenta").value);
-let saldo = cuenta [indice-1].saldo;
-
-document.getElementById("descripcion").innerHTML =saldo-retiro;
-cuenta [indice-1].saldo = saldo-retiro;
-
-if( saldo < 11 ) {
-    document.querySelector("#descripcion").innerHTML="Saldo insuficiente"
-} else (document.querySelector("#bienvenido").innerHTML="Transaccion Exitosa")
-
-console.log(saldo);
-}
-
 /*CONSIGNAR PERSONA*/
 
 function leerconsignar(){
@@ -97,13 +70,31 @@ function leerconsignar(){
     let indice = parseInt(document.querySelector("#cuenta").value);
     let saldo = cuenta [indice-1].saldo;
     
-    document.getElementById("descripcion").innerHTML = saldo+consignar;
-    cuenta [indice-1].saldo = saldo+consignar;
-
-    if( saldo >990) {
-        document.getElementById("descripcion").alert="Excedio su saldo, consuelte a un asesor bancario" }
-        else { (document.getElementById("bienvenido").innerHTML="Transaccion Exitosa")
+    
+    if( (saldo + consignar)> 990) {
+        alert("Excedio su saldo, consuelte a un asesor bancario") }
+        else { 
+            document.getElementById("descripcion").innerHTML = saldo+consignar;
+             (cuenta [indice-1].saldo = saldo+consignar);
+             (document.getElementById("bienvenido").innerHTML="Transaccion Exitosa")
     }
     console.log(saldo);
 }
 
+/*rEtIRAR PERSONA*/
+
+function leerretirar(){
+    let retiro = parseInt(document.querySelector("#retirar").value);
+    let indice = parseInt(document.querySelector("#cuenta").value);
+    let saldo = cuenta [indice-1].saldo;
+
+    
+    if( saldo - retiro < 10 ) { 
+        alert("Saldo insuficiente")}
+        
+    else { 
+         document.getElementById("descripcion").innerHTML = saldo-retiro;
+          (cuenta [indice-1].saldo = saldo-retiro);
+          (document.getElementById("bienvenido").innerHTML="Transaccion Exitosa")
+    }
+}
